@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatiane Gaudio | Neuropsicopedagoga e Psicopedagoga</title>
+    <meta name="description" content="Tatiane Ruy Soares Gaudio - Cuidado integral e desenvolvimento humano.">
+    
+    <!-- Google Fonts (Inter e Playfair Display) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (via CDN para uso em único arquivo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { -webkit-font-smoothing: antialiased; }
+
+        /* Animações de entrada e Modal */
+        #lightbox {
+            transition: opacity 0.3s ease;
+        }
+        #lightbox img {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.9);
+        }
+        #lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #lightbox.active img {
+            transform: scale(1);
+        }
+
+        #mobile-menu {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-20px);
+        }
+        #mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUpAnim 0.8s forwards;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: scale(0.95);
+            animation: fadeInAnim 1s 0.2s forwards;
+        }
+        .fade-up-delay {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUpAnim 0.8s 0.8s forwards;
+        }
+
+        @keyframes fadeUpAnim {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInAnim {
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#F5EBE4] font-sans selection:bg-[#EADDD3] selection:text-[#3E2723] text-[#4A3B32] relative overflow-x-hidden">
+
+    <!-- Navegação / Header -->
+    <header id="main-header" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <div class="flex items-center space-x-3 z-50">
+                <div class="w-10 h-10 bg-[#D25F38] rounded-full flex items-center justify-center text-white font-serif text-lg font-bold">
+                    TG
+                </div>
+                <a href="#inicio" class="font-serif text-xl tracking-tight text-[#3E2723] font-bold">Tatiane Gaudio</a>
+            </div>
+
+            <!-- Navegação Desktop -->
+            <nav class="hidden md:flex space-x-8" id="desktop-nav">
+                <!-- Preenchido via Javascript -->
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="https://api.whatsapp.com/send/?phone=5527992488297" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 bg-[#D25F38] hover:bg-[#C85A32] text-white text-[11px] uppercase tracking-widest font-bold rounded-sm shadow-sm transition-colors">
+                    Agendar Consulta
+                </a>
+            </div>
+
+            <!-- Botão Menu Mobile -->
+            <button class="md:hidden z-50 text-[#3E2723]" onclick="toggleMenu()">
+                <i data-lucide="menu" id="icon-menu-open" class="w-6 h-6"></i>
+                <i data-lucide="x" id="icon-menu-close" class="w-6 h-6 hidden"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Menu Mobile (Overlay) -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white pt-24 px-6 flex flex-col items-center">
+        <div id="mobile-nav-links" class="flex flex-col space-y-6 text-center w-full">
+            <!-- Preenchido via Javascript -->
+        </div>
+        <a href="https://api.whatsapp.com/send/?phone=5527992488297" target="_blank" rel="noopener noreferrer" class="mt-8 px-6 py-4 w-full max-w-sm bg-[#D25F38] text-white text-xs uppercase tracking-widest font-bold rounded-sm text-center">
+            Agende uma Consulta
+        </a>
+    </div>
+
+    <!-- Seção: Herói (Início) -->
+    <section id="inicio" class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 md:px-12 overflow-hidden flex items-center min-h-[90vh]">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#EADDD3] rounded-full blur-[100px] opacity-40 -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#FAEBE1] rounded-full blur-[80px] opacity-60 translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10 w-full">
+            <div class="flex flex-col space-y-6 fade-up">
+                <div>
+                    <span class="text-[#8FA082] text-xs font-bold uppercase tracking-[0.2em] mb-4 block">
+                        Neuropsicopedagoga e Psicopedagoga
+                    </span>
+                    <h1 class="font-serif text-5xl md:text-6xl text-[#3E2723] leading-[1.1] mb-6">
+                        Cuidado integral e desenvolvimento humano.
+                    </h1>
+                </div>
+                <p class="text-lg leading-relaxed opacity-80 max-w-lg mb-4">
+                    Tatiane Ruy Soares Gaudio é uma profissional com sólida trajetória e ampla formação no campo da Educação e da Psicopedagogia, destacando-se por seu comprometimento, ética e dedicação ao desenvolvimento humano.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="https://api.whatsapp.com/send/?phone=5527992488297" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-[#D25F38] hover:bg-[#C85A32] text-white text-xs uppercase tracking-widest font-bold rounded-sm transition-colors text-center inline-flex items-center justify-center">
+                        Agende uma consulta <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </a>
+                    <a href="#especialidades" class="px-8 py-4 border border-[#4A3B32] text-[#4A3B32] hover:bg-[#FAEBE1] text-xs uppercase tracking-widest font-bold rounded-sm transition-colors text-center">
+                        Conhecer Especialidades
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative fade-in">
+                <div class="bg-[#EADDD3] rounded-[40px] overflow-hidden aspect-[4/5] md:aspect-square relative shadow-2xl shadow-[#EADDD3]/50">
+                    <img src="tatiane.png" alt="Tatiane Gaudio em seu consultório" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 bg-stone-900/10 mix-blend-overlay border-[8px] border-white/20 rounded-[40px] pointer-events-none"></div>
+                </div>
+                
+                <div class="absolute -bottom-6 -left-6 md:-left-12 bg-white p-6 rounded-xl shadow-xl border border-[#EADDD3] flex items-center space-x-4 max-w-xs fade-up-delay">
+                    <div class="w-12 h-12 bg-[#FAEBE1] rounded-full flex items-center justify-center text-[#D25F38] shrink-0">
+                        <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-widest font-bold text-[#8FA082] mb-1">Avaliações Positivas</p>
+                        <p class="font-serif text-2xl font-bold text-[#3E2723]">Excelente</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Formação Acadêmica -->
+    <section id="formacao" class="py-24 bg-white border-y border-[#EADDD3]">
+        <div class="max-w-5xl mx-auto px-6 md:px-12 text-center">
+            <span class="text-[#8FA082] text-[10px] font-bold uppercase tracking-[0.2em] mb-4 block">
+                Base Sólida e Conhecimento
+            </span>
+            <h2 class="font-serif text-4xl text-[#3E2723] mb-12">Formação Acadêmica</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 text-left">
+                <div class="p-8 border border-[#EADDD3] rounded-[20px] bg-[#F5EBE4] hover:border-[#D25F38] transition-colors">
+                    <div class="w-12 h-12 bg-[#FAEBE1] rounded-lg flex items-center justify-center text-[#8FA082] mb-6">
+                        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-[#3E2723] mb-4">Especialização Avançada</h3>
+                    <p class="leading-relaxed opacity-80">
+                        Terapia Familiar e ABA, Neuropsicopedagogia Clínica e Institucional.
+                    </p>
+                </div>
+                <div class="p-8 border border-[#EADDD3] rounded-[20px] bg-[#F5EBE4] hover:border-[#D25F38] transition-colors">
+                    <div class="w-12 h-12 bg-[#FAEBE1] rounded-lg flex items-center justify-center text-[#8FA082] mb-6">
+                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-[#3E2723] mb-4">Pedagogia e Psicopedagogia</h3>
+                    <p class="leading-relaxed opacity-80">
+                        Com formação completa em Pedagogia, Psicopedagogia e Neuropsicopedagogia, Tatiane também possui especializações em Educação Especial, Educação Infantil e Análise do Comportamento Aplicado (ABA).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Áreas de Especialidade -->
+    <section id="especialidades" class="py-24">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <span class="text-[#8FA082] text-[10px] font-bold uppercase tracking-[0.2em] mb-4 block">
+                    Foco no Paciente
+                </span>
+                <h2 class="font-serif text-4xl text-[#3E2723]">Áreas de Especialidade</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white border border-[#EADDD3] p-10 rounded-[24px] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-14 h-14 bg-[#D25F38] rounded-xl flex items-center justify-center text-white mb-8">
+                        <i data-lucide="brain" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-[#3E2723] mb-4">Transtornos de Aprendizagem</h3>
+                    <p class="leading-relaxed opacity-80 text-sm">
+                        Avaliação e intervenção especializada para dificuldades específicas de aprendizagem. Trabalhando formas dinâmicas para o desenvolvimento.
+                    </p>
+                </div>
+
+                <div class="bg-white border border-[#EADDD3] p-10 rounded-[24px] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-14 h-14 bg-[#D25F38] rounded-xl flex items-center justify-center text-white mb-8">
+                        <i data-lucide="activity" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-[#3E2723] mb-4">Intervenção Comportamental (ABA)</h3>
+                    <p class="leading-relaxed opacity-80 text-sm">
+                        Aplicação de técnicas baseadas em evidências para modificação de comportamento e aquisição de novas habilidades de forma estruturada.
+                    </p>
+                </div>
+
+                <div class="bg-white border border-[#EADDD3] p-10 rounded-[24px] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-14 h-14 bg-[#D25F38] rounded-xl flex items-center justify-center text-white mb-8">
+                        <i data-lucide="users" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-[#3E2723] mb-4">Inclusão Escolar</h3>
+                    <p class="leading-relaxed opacity-80 text-sm">
+                        Estratégias para integração efetiva de alunos com necessidades especiais, oferecendo suporte contínuo junto à escola e família.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Experiência Profissional -->
+    <section id="experiencia" class="py-24 bg-[#EADDD3]/30">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-5 md:pr-12">
+                <span class="text-[#8FA082] text-[10px] font-bold uppercase tracking-[0.2em] mb-4 block">
+                    Trajetória Constante
+                </span>
+                <h2 class="font-serif text-4xl text-[#3E2723] mb-6">Experiência Profissional</h2>
+                <p class="leading-relaxed opacity-80 mb-8">
+                    Atuação pautada pela ética e busca incessante pelo aprimoramento das metodologias educacionais e terapêuticas para o bem-estar familiar.
+                </p>
+                <div class="w-full h-[300px] md:h-[400px] rounded-[30px] overflow-hidden shadow-lg border border-white">
+                    <img src="tatiane-quem-sou-eu.png" alt="Consultório" class="w-full h-full object-cover" />
+                </div>
+            </div>
+            
+            <div class="md:col-span-7 space-y-6">
+                <div class="flex items-start bg-white p-6 md:p-8 rounded-[20px] border border-[#EADDD3] shadow-sm">
+                    <div class="text-4xl text-[#D25F38] font-serif font-bold mr-6 mt-1 opacity-80">30</div>
+                    <div>
+                        <h4 class="font-bold text-lg text-[#3E2723] mb-2">Anos na área educacional</h4>
+                        <p class="text-sm opacity-80">Vasta experiência em diferentes contextos educacionais, vivenciando o dia a dia pedagógico em sua plenitude.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start bg-white p-6 md:p-8 rounded-[20px] border border-[#EADDD3] shadow-sm">
+                    <div class="text-4xl text-[#D25F38] font-serif font-bold mr-6 mt-1 opacity-80">12</div>
+                    <div>
+                        <h4 class="font-bold text-lg text-[#3E2723] mb-2">Anos em consultório próprio</h4>
+                        <p class="text-sm opacity-80">Atendimentos neuropsicopedagógicos e psicopedagógicos personalizados com resultados acompanhados de perto.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start bg-[#EADDD3] text-[#3E2723] p-6 md:p-8 rounded-[20px] shadow-sm border border-[#EADDD3]">
+                    <div class="w-12 h-12 rounded-full bg-white/60 flex items-center justify-center mr-6 shrink-0 mt-1 text-[#D25F38] shadow-sm border border-white/50">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Terapia Familiar</h4>
+                        <p class="text-sm opacity-90 text-[#4A3B32]">Orientação e suporte para famílias no processo educacional, aliando forças para um desenvolvimento integral maravilhoso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Formação de Professores -->
+    <section id="professores" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 text-center">
+            <div class="max-w-3xl mx-auto mb-16">
+                <span class="text-[#8FA082] text-[10px] font-bold uppercase tracking-[0.2em] mb-4 block">
+                    Multiplicando Saberes
+                </span>
+                <h2 class="font-serif text-4xl text-[#3E2723] mb-6">Formação de Professores</h2>
+                <p class="leading-relaxed opacity-80 text-lg">
+                    "Tatiane é palestrante ativa em eventos educacionais, promovendo o aprimoramento de práticas pedagógicas e a inclusão de métodos eficazes de ensino-aprendizagem."
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <div class="p-8 border border-[#EADDD3] rounded-[20px] hover:-translate-y-1 transition-transform bg-[#F5EBE4]">
+                    <div class="text-[#D25F38] mb-6"><i data-lucide="award" class="w-8 h-8"></i></div>
+                    <h3 class="font-bold text-xl text-[#3E2723] mb-3">Palestras Educacionais</h3>
+                    <p class="text-sm opacity-80 leading-relaxed">Compartilhamento de conhecimentos em eventos focados para educadores, diretores e famílias.</p>
+                </div>
+                <div class="p-8 border border-[#EADDD3] rounded-[20px] hover:-translate-y-1 transition-transform bg-[#F5EBE4]">
+                    <div class="text-[#D25F38] mb-6"><i data-lucide="graduation-cap" class="w-8 h-8"></i></div>
+                    <h3 class="font-bold text-xl text-[#3E2723] mb-3">Capacitação Contínua</h3>
+                    <p class="text-sm opacity-80 leading-relaxed">Formação contínua para professores e equipes da rede pública e privada, atualizando visões educacionais.</p>
+                </div>
+                <div class="p-8 border border-[#EADDD3] rounded-[20px] hover:-translate-y-1 transition-transform bg-[#F5EBE4]">
+                    <div class="text-[#D25F38] mb-6"><i data-lucide="book-open" class="w-8 h-8"></i></div>
+                    <h3 class="font-bold text-xl text-[#3E2723] mb-3">Métodos Inovadores</h3>
+                    <p class="text-sm opacity-80 leading-relaxed">Apresentação de práticas pedagógicas eficazes e inclusivas, focadas na transformação prática de sala de aula.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Abordagem Educacional -->
+    <section class="py-24 bg-[#EADDD3] text-[#3E2723]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl mb-4">Abordagem Educacional</h2>
+                <p class="opacity-80 font-medium text-[#4A3B32]">Um processo claro, estruturado e eficaz.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="relative text-center">
+                    <div class="w-20 h-20 bg-white/50 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm border border-white/60 shadow-sm text-[#D25F38]">
+                        <span class="font-serif text-2xl font-bold">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Avaliação</h3>
+                    <p class="text-sm opacity-80 text-[#4A3B32]">Diagnóstico preciso das necessidades educacionais.</p>
+                    <div class="hidden lg:block absolute top-10 w-full left-1/2 border-t-2 border-dashed border-[#3E2723]/15 -z-10"></div>
+                </div>
+                <div class="relative text-center">
+                    <div class="w-20 h-20 bg-white/50 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm border border-white/60 shadow-sm text-[#D25F38]">
+                        <span class="font-serif text-2xl font-bold">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Planejamento</h3>
+                    <p class="text-sm opacity-80 text-[#4A3B32]">Estratégias personalizadas de intervenção.</p>
+                    <div class="hidden lg:block absolute top-10 w-full left-1/2 border-t-2 border-dashed border-[#3E2723]/15 -z-10"></div>
+                </div>
+                <div class="relative text-center">
+                    <div class="w-20 h-20 bg-white/50 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm border border-white/60 shadow-sm text-[#D25F38]">
+                        <span class="font-serif text-2xl font-bold">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Intervenção</h3>
+                    <p class="text-sm opacity-80 text-[#4A3B32]">Aplicação de técnicas específicas com o paciente.</p>
+                    <div class="hidden lg:block absolute top-10 w-full left-1/2 border-t-2 border-dashed border-[#3E2723]/15 -z-10"></div>
+                </div>
+                <div class="relative text-center">
+                    <div class="w-20 h-20 bg-white/50 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm border border-white/60 shadow-sm text-[#D25F38]">
+                        <span class="font-serif text-2xl font-bold">4</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Acompanhamento</h3>
+                    <p class="text-sm opacity-80 text-[#4A3B32]">Monitoramento contínuo do progresso diário.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Galeria -->
+    <section id="galeria" class="py-24 bg-[#F5EBE4]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <span class="text-[#8FA082] text-[10px] font-bold uppercase tracking-[0.2em] mb-4 block">
+                    Nossa Vivência
+                </span>
+                <h2 class="font-serif text-4xl text-[#3E2723] mb-6">Equipe e Eventos</h2>
+                <p class="opacity-80 max-w-2xl mx-auto">Registros de workshops, encontros de formação de professores e momentos marcantes no consultório.</p>
+            </div>
+            
+            <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Imagens injetadas via Javascript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Avaliações e Acesso Rápido -->
+    <section class="py-20 border-t border-b border-[#EADDD3] bg-[#EADDD3]/20">
+        <div class="max-w-4xl mx-auto px-6 md:px-12 text-center">
+            <h2 class="font-serif text-3xl text-[#3E2723] mb-8">O que dizem sobre nosso trabalho</h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="https://www.google.com/search?q=tatiane+gaudio" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-8 py-4 bg-white border border-[#EADDD3] shadow-sm hover:shadow-md hover:border-[#D25F38] rounded-sm text-xs font-bold uppercase tracking-widest text-[#4A3B32] transition-all">
+                    <i data-lucide="message-square" class="w-4 h-4 mr-3"></i> Acesse os Comentários
+                </a>
+                <a href="https://www.google.com/search?q=Espa%C3%A7o+Psicopedag%C3%B3gico+Tatiane+Gaudio+Coment%C3%A1rios" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-8 py-4 bg-white border border-[#EADDD3] shadow-sm hover:shadow-md hover:border-[#D25F38] rounded-sm text-xs font-bold uppercase tracking-widest text-[#4A3B32] transition-all">
+                    <i data-lucide="star" class="w-4 h-4 mr-3"></i> Avaliar Atendimento
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contato -->
+    <footer id="contato" class="bg-[#3E2723] text-[#F5EBE4] pt-24 pb-12 rounded-t-[40px] mt-12 overflow-hidden shadow-[0_-20px_50px_rgba(0,0,0,0.05)]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-16 mb-16">
+            
+            <div>
+                <h2 class="font-serif text-4xl mb-6">Tatiane Gaudio</h2>
+                <p class="opacity-70 leading-relaxed max-w-sm mb-10">
+                    Entre em contato para agendar uma consulta ou obter mais informações sobre os serviços oferecidos. Atendimentos personalizados para crianças, adolescentes e orientação familiar.
+                </p>
+                
+                <div class="space-y-6">
+                    <a href="https://api.whatsapp.com/send/?phone=5527992488297" target="_blank" rel="noopener noreferrer" class="flex items-center group">
+                        <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center mr-4 group-hover:bg-[#D25F38] group-hover:border-transparent transition-colors text-white">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                        </div>
+                        <span class="font-bold opacity-90 group-hover:text-white transition-colors">+55 27 99248-8297</span>
+                    </a>
+                    <a href="mailto:anegaudio@gmail.com" class="flex items-center group">
+                        <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center mr-4 group-hover:bg-[#D25F38] group-hover:border-transparent transition-colors text-white">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                        </div>
+                        <span class="font-bold opacity-90 group-hover:text-white transition-colors">anegaudio@gmail.com</span>
+                    </a>
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center mr-4 shrink-0 text-white">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        </div>
+                        <span class="opacity-80 mt-2 text-sm leading-relaxed max-w-[250px]">
+                            Rua São Gonçalo, 72 - Vale Encantado<br/>Vila Velha - ES, CEP: 29113-180
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col justify-center">
+                <div class="bg-white/5 p-8 rounded-[24px] border border-white/10 backdrop-blur-sm">
+                    <h3 class="font-serif text-2xl mb-6">Acesso Rápido</h3>
+                    <div class="space-y-4">
+                        <a href="https://api.whatsapp.com/send/?phone=5527992488297" target="_blank" rel="noopener noreferrer" class="flex justify-between items-center w-full p-4 bg-white text-[#3E2723] hover:bg-[#EADDD3] rounded-sm font-bold text-xs uppercase tracking-widest transition-colors">
+                            <span>Agende uma Consulta</span>
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://form.jotform.com/fdenarde/formulario-de-anamnese" target="_blank" rel="noopener noreferrer" class="flex justify-between items-center w-full p-4 border border-white/30 hover:bg-white/10 text-white rounded-sm font-bold text-xs uppercase tracking-widest transition-colors">
+                            <span>Formulário de Anamnese</span>
+                            <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-12 pt-8 border-t border-white/10 text-center opacity-50 text-[10px] uppercase tracking-widest font-bold">
+            <p>2025 © Todos os direitos reservados. Dra. Tatiane Gaudio.</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante (WhatsApp) -->
+    <a href="https://api.whatsapp.com/send/?phone=5527992488297" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center shadow-2xl shadow-green-500/30 z-50 transition-transform hover:scale-110" aria-label="Contato pelo WhatsApp">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </a>
+
+    <!-- Modal Lightbox (Galeria) -->
+    <div id="lightbox" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 opacity-0 pointer-events-none" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors" onclick="closeLightbox()">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Imagem ampliada" class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- Scripts da Página -->
+    <script>
+        // Array com os links de navegação
+        const navLinks = [
+            { name: 'Início', href: '#inicio' },
+            { name: 'Formação', href: '#formacao' },
+            { name: 'Especialidades', href: '#especialidades' },
+            { name: 'Experiência', href: '#experiencia' },
+            { name: 'Professores', href: '#professores' },
+            { name: 'Galeria', href: '#galeria' },
+            { name: 'Contato', href: '#contato' }
+        ];
+
+        // Montar a Navegação Desktop
+        const desktopNav = document.getElementById('desktop-nav');
+        navLinks.forEach(link => {
+            const a = document.createElement('a');
+            a.href = link.href;
+            a.className = "text-[11px] uppercase tracking-[0.15em] font-bold text-[#4A3B32] hover:text-[#D25F38] transition-colors";
+            a.innerText = link.name;
+            desktopNav.appendChild(a);
+        });
+
+        // Montar a Navegação Mobile
+        const mobileNav = document.getElementById('mobile-nav-links');
+        navLinks.forEach(link => {
+            const a = document.createElement('a');
+            a.href = link.href;
+            a.className = "text-lg font-serif text-[#3E2723] border-b border-[#EADDD3] pb-4 block";
+            a.innerText = link.name;
+            a.onclick = () => toggleMenu(); // fechar ao clicar
+            mobileNav.appendChild(a);
+        });
+
+        // Array de Imagens da Galeria
+        const galleryImages = [
+            'tatiane-boneco-tatiane.png',
+            'tatiane-boneco-fabio.png',
+            'tatiane-boneco-rafaella.png',
+            'tatiane-envento01.png',
+            'tatiane-envento02.png',
+            'tatiane-envento03.png',
+            'tatiane-envento04.jpeg',
+            'tatiane-envento05.png',
+            'tatiane-envento06.png',
+            'tatiane-envento07.png',
+            'tatiane-envento08.png',
+            'tatiane-envento09.png'
+        ];
+
+        // Montar a Galeria
+        const galleryContainer = document.getElementById('gallery-container');
+        galleryImages.forEach((src, i) => {
+            const isEquipe = i < 3;
+            const alt = isEquipe ? `Equipe ${i + 1}` : `Evento ${i + 1}`;
+            const objPosClass = isEquipe ? 'object-top' : 'object-center';
+            
+            const div = document.createElement('div');
+            div.className = "aspect-square bg-[#EADDD3] rounded-[16px] border border-[#EADDD3]/50 overflow-hidden group relative cursor-pointer";
+            div.onclick = () => openLightbox(src);
+            
+            div.innerHTML = `
+                <img src="${src}" alt="${alt}" class="w-full h-full group-hover:scale-105 transition-transform duration-500 object-cover ${objPosClass}" loading="lazy">
+                <div class="absolute inset-0 bg-[#3E2723]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <i data-lucide="image" class="w-8 h-8 text-white opacity-80"></i>
+                </div>
+            `;
+            galleryContainer.appendChild(div);
+        });
+
+        // Inicializar os ícones do Lucide após as estruturas serem montadas
+        lucide.createIcons();
+
+        // Variáveis do Header / Menu / Lightbox
+        const header = document.getElementById('main-header');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconMenuOpen = document.getElementById('icon-menu-open');
+        const iconMenuClose = document.getElementById('icon-menu-close');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        
+        let menuOpen = false;
+
+        // Efeito do Header mudando a cor ao rolar a página
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.remove('bg-transparent', 'py-6');
+                header.classList.add('bg-white/95', 'backdrop-blur-sm', 'border-b', 'border-[#EADDD3]', 'py-4');
+            } else {
+                header.classList.add('bg-transparent', 'py-6');
+                header.classList.remove('bg-white/95', 'backdrop-blur-sm', 'border-b', 'border-[#EADDD3]', 'py-4');
+            }
+        });
+
+        // Alternar Menu Mobile
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.add('active');
+                iconMenuOpen.classList.add('hidden');
+                iconMenuClose.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.remove('active');
+                iconMenuOpen.classList.remove('hidden');
+                iconMenuClose.classList.add('hidden');
+            }
+        }
+
+        // Funções do Modal / Lightbox (Galeria)
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
